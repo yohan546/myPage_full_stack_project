@@ -1,0 +1,16 @@
+Started GET "/" for ::1 at 2021-03-17 07:42:34 -0400
+
+ActiveRecord::NoDatabaseError - FATAL:  database "myPage_development" does not exist:
+
+Started POST "/__better_errors/09ff3a5f942440b0/variables" for ::1 at 2021-03-17 07:42:34 -0400
+  [1m[35m (1594.9ms)[0m  [1m[35mCREATE DATABASE "myPage_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (162.8ms)[0m  [1m[35mCREATE DATABASE "myPage_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2021-03-17 07:43:22 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/yohanoh/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.4.5/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/yohanoh/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.4.5/lib/rails/templates/rails/welcome/index.html.erb (3.5ms)
+Completed 200 OK in 48ms (Views: 33.0ms | ActiveRecord: 0.0ms)
+
+
