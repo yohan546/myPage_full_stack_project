@@ -6,6 +6,12 @@ class Api::UsersController < ApplicationController
             sign_in(@user)
             render "api/users/newsfeed"
         else
-            render json: []
+            render json: @user.errors.full_messages, status 422 
+    end
+
+    private
+
+    def user_params 
+        params.require(:user).permit(:name, :username, :email, :password)
     end
 end
