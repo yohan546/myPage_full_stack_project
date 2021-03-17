@@ -3,7 +3,7 @@ class User < ApplicationRecord
     validates :username, :email, uniqueness: true 
     attr_reader :password 
 
-    after_initalize :ensure_session_token
+    after_initialize :ensure_session_token
 
 
     def self.find_by_credentials(email, password) 
