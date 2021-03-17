@@ -22,6 +22,7 @@ class Api::SessionsController < ApplicationController
             render 'api/users/newsfeed'
         else 
             render json: ['Must Be Signed In'], status 404
+        end
     end
 
 end
