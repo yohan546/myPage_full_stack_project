@@ -6,7 +6,8 @@ class Api::UsersController < ApplicationController
             sign_in(@user)
             render "api/users/newsfeed"
         else
-            render json: @user.errors.full_messages, status 422 
+            render json: @user.errors.full_messages, status: 422 
+        end
     end
 
     private
