@@ -8,3 +8,9 @@
 
 
 User.delete_all 
+
+user1 = User.create!(
+    username: 'jonsnow123',
+    email: 'jonsnow@gameofthrones.com',
+    password: 'password'
+)
