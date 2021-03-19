@@ -17,7 +17,7 @@ const mapStateToProps = ( {errors} ) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         sessionForm: (user) => dispatch(sign_up(user))
-    }
-}
+    };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SessionForm)

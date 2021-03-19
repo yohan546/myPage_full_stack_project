@@ -6,9 +6,10 @@ class SessionForm extends React.Component {
         this.state = { 
             email: '',
             password: '',
-        }
+        };
         this.handleSubmit = this.handleSubmit.bind(this);
-    }
+        
+    };
     
 
 
@@ -17,7 +18,7 @@ class SessionForm extends React.Component {
     }
 
     handleSubmit(e) {
-        e.preventDefault()
+        e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.sessionForm(user);
     }
@@ -25,33 +26,37 @@ class SessionForm extends React.Component {
     renderErrors() {
         return (
             <ul>
-                {
-                this.props.errors.map((error, status) => (
-                    <li key={`error-${status}`}>
-                        {error}
+                {     
+                this.props.errors.map((error, status) => (                   
+                    <li key={`error-${status}`}>         
+                        {error}         
                     </li>
-                ))
+                ))                
                 }
             </ul>
         )
     }
+
+    
+    
 
     render() {
 
         return (
             <div className = 'login-form-container'>
                 <form onSubmit={this.handleSubmit} className='signin-form-box'>
-                    <h1>Welcome to MyPage! </h1>                    
-                    {this.renderErrors()}
+                    <h2>Welcome to MyPage!</h2>                      
+                    {this.renderErrors()}                    
                     <div className='login-form'>
                         <label>
-                        Email
+                        Email   
                         <input type="text"
                         value={this.state.email}
                         onChange={this.handleChange('email')}
                         className='email-input'
                         />
                         </label>
+                        <br/>
                         <label>
                             Password
                             <input type="text"
@@ -60,11 +65,11 @@ class SessionForm extends React.Component {
                             className='password-input'
                             />
                         </label>
+                        <br/>
                         <input className='session-submit' type="submit" value={this.props.formType}/>
                     </div>
                     {
                         this.props.formType === 'Sign Up' ? 
-                        
                         this.props.params.map((param, i) => (
                             <li key={param}>
                                 {param}</li>
