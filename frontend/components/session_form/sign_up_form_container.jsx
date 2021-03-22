@@ -1,22 +1,23 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
-import {sign_up} from '../../actions/session_actions'
-
+import {sign_up, clearErrors} from '../../actions/session_actions'
+import { closeModal, openModal } from '../../actions/modal_actions';
 import SessionForm from './session_form'
 
 const mapStateToProps = ( {errors} ) => {
     return {
+        
         errors: errors.session,
-        formType: 'Sign Up',
-        navLink: <Link to='/'>Sign In</Link>,
+        formType: 'Sign Up',      
         params: ['Must be a valid email address', 'Password must at least 6 characters', 'Password must be no more than 30 characters']
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        sessionForm: (user) => dispatch(sign_up(user))
+        sessionForm: (user) => dispatch(sign_up(user)),
+        closeModal: () => dispatch(closeModal()),
+        clearErrors: () => dispatch(clearErrors())
     };
 };
 

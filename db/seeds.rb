@@ -7,10 +7,18 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.delete_all 
+User.delete_all
+ActiveRecord::Base.connection.reset_pk_sequence!('User')
+
 
 user1 = User.create!(
-    username: 'jonsnow123',
+    name: 'Jon Snow',
     email: 'jonsnow@gameofthrones.com',
+    password: 'password'
+)
+
+user2 = User.create!(
+    name: 'Jamie Lanister',
+    email: 'jamielanister@gameofthrones.com',
     password: 'password'
 )

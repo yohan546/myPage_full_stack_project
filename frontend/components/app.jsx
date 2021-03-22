@@ -6,22 +6,20 @@ import {
 } from 'react-router-dom';
 
 import SignInContainer from './session_form/sign_in_form_container';
-import SignUpContainer from './session_form/sign_up_form_container';
-import { AuthRoute, ProtectedRoute } from '../util/route_util';
+
+import Modal from './modal/modal'
+import { AuthRoute } from '../util/route_util';
 
 const App = () => (
     <div>
-    <header>
-        <h1>MyPage</h1>
-    </header>
-    
-        
-            
+        <header>
+            <h1>MyPage</h1>
+            <Link to="/" />
+        </header>
+            <Modal />    
             <Switch>
-                <AuthRoute exact path ='/' component={SignInContainer}/>
-                <AuthRoute exact path ='/signup' component={SignUpContainer}/>
+                <AuthRoute exact path ='/' component={SignInContainer}/> 
             </Switch>
-        
     </div>
 )
 

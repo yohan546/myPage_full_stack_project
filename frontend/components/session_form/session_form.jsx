@@ -4,6 +4,7 @@ class SessionForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = { 
+            name: '',
             email: '',
             password: '',
         };
@@ -20,15 +21,16 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.sessionForm(user);
+        this.props.sessionForm(user).then(this.props.closeModal);
     }
+
 
     renderErrors() {
         return (
             <ul>
                 {     
                 this.props.errors.map((error, status) => (                   
-                    <li key={`error-${status}`}>         
+                    <li className="errors" key={`error-${status}`}>         
                         {error}         
                     </li>
                 ))                
@@ -42,43 +44,68 @@ class SessionForm extends React.Component {
 
     render() {
 
+
         return (
             <div className = 'login-form-container'>
                 <form onSubmit={this.handleSubmit} className='signin-form-box'>
-                    <h2>Welcome to MyPage!</h2>                      
-                    {this.renderErrors()}                    
+                   
+                    {
+                        this.props.formType === 'Sign Up' ?
+                        <h2>Sign up!</h2> : null
+                    }
+                    {
+                        this.props.formType === 'Sign Up' ?                       
+                        <button onClick={this.props.closeModal} className='btn-close'>X</button> : null
+                    }                                    
+                    {this.renderErrors()} 
+                                       
                     <div className='login-form'>
                         <label>
-                        Email   
+                        
                         <input type="text"
                         value={this.state.email}
                         onChange={this.handleChange('email')}
                         className='email-input'
+                        placeholder='Email'
                         />
                         </label>
                         <br/>
                         <label>
-                            Password
                             <input type="text"
                             value={this.state.password}
                             onChange={this.handleChange('password')}
                             className='password-input'
+                            placeholder='Password'
                             />
                         </label>
                         <br/>
-                        <input className='session-submit' type="submit" value={this.props.formType}/>
-                    </div>
-                    {
+                        { 
+                            this.props.formType === 'Sign Up' ? 
+                            <label>
+                            <input type="text"
+                            value={this.state.name}
+                            onChange={this.handleChange('name')}
+                            className='name-input' 
+                            placeholder='Name'/> </label>: null 
+                            
+                        }
+                        <br/>
+                        {
                         this.props.formType === 'Sign Up' ? 
                         this.props.params.map((param, i) => (
                             <li key={param}>
                                 {param}</li>
                         )) : null
-                    }
-                    {
-                    this.props.formType === 'Sign In' ?
-                        <h3>New User? {this.props.navLink}</h3> : <h3>Already have An Account? {this.props.navLink}</h3> 
-                    }                    
+                        }
+                        <br/>
+                        <label>
+                            <input className='session-submit' type="submit" value={this.props.formType}/>
+                        </label>
+                        <br/>
+                        {this.props.otherForm}
+                        
+                    </div>
+                         
                 </form>
             </div>
         )

@@ -3,7 +3,7 @@ import {
 } from '../actions/session_actions';
 
 const _nullUser = Object.freeze({
-    id: null
+    currentUser: null
 })
 
 const sessionReducer = (oldState = _nullUser, action) => {
@@ -12,7 +12,7 @@ const sessionReducer = (oldState = _nullUser, action) => {
 
     switch(action.type) {
         case RECEIVE_CURRENT_USER:
-            newState = {id: action.currentUser.id}
+            newState = { id: action.currentUser.id };
             return newState;
         case SIGNOUT_CURRENT_USER:
             return _nullUser;
