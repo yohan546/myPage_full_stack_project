@@ -1,0 +1,139 @@
+html { 
+    background-color:azure;
+    font-family: Arial,  serif;
+    margin-top: 100px;
+}
+
+
+div.login-form-container {
+    float: right;
+    background-color: white;
+    box-shadow: gray 0 2px 5px, gray 0 5px 10px;
+    color: black;
+    border-radius: 10px;
+    width: 350px;
+    height: 400px;
+    padding: 20px 20px;
+
+    margin-right: 50px;
+    
+    text-align: center;
+    position: relative;
+    box-sizing:border-box;
+}
+
+.login-form-box {
+    padding: 10px;
+    display: block;
+}
+
+.signin-form-box {
+    text-align: center;
+}
+
+.login-form {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+header {
+    margin-left: 50px;
+    font-size: 50px;
+    float: left;
+    display: block;
+    align-items: left;
+    justify-content: left;
+    position: relative;
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+    float: left;
+}
+
+label {
+    display: inline-block;
+    justify-content: left;
+    margin-bottom: 15px;
+}
+
+.password-input, .email-input, .name-input {
+    border-color: lightblue;
+    border: 1px solid lightblue;
+    display: inline-block;
+    text-align: left;
+    border-radius: 5px;
+    margin-left: 10px;
+    width: 300px;
+    line-height: 40px;
+}
+
+.session-submit {
+    display: inline-block;
+    border: none; 
+    border-radius: 5px;
+    margin-left: 10px;
+    width: 300px;
+    line-height: 40px;
+    background-color: blue;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+h1 {
+    float: left;
+    font-weight: bold;
+    font-size: 40px;
+    color: blue;
+    font-family: Helvetica, Arial, sans-serif;
+}
+h3 {
+    margin-top: 40px;
+    margin-left: 70px;
+}
+
+.btn-create-account {
+    font-weight: bold;
+    margin-top: 20px;
+    width: 220px; 
+    line-height: 60px;
+    border: none;
+    border-radius: 6px;
+    background-color: green;
+    color: white;
+    font-size: 16px;
+}
+
+.btn-close {
+    float: right;
+}
+
+.errors {
+    color: red;
+}
+
+
+
+.modal-background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+    height: 500px;
+  }
+  
+  .modal-child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
