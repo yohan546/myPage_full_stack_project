@@ -1,10 +1,15 @@
 import * as SessionApiUtil from '../util/session_api_util';
-
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER'
 export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS'
-export const SIGNOUT_CURRENT_USER = 'SIGNOUT_CURRENT_USER'
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS'
 export const CLEAR_ERRORS = 'CLEAR_ERRORS'
+export const SIGNOUT_CURRENT_USER = 'SIGNOUT_CURRENT_USER'
+
+export const signoutCurrentUser = () => {
+    return ({
+        type: SIGNOUT_CURRENT_USER,
+    })
+}
 
 export const clearErrors = () => {
     return ({
@@ -23,12 +28,6 @@ export const receiveAllUsers = (users) => {
     return ({
         type: RECEIVE_ALL_USERS,
         users,
-    })
-}
-
-export const signoutCurrentUser = () => {
-    return ({
-        type: SIGNOUT_CURRENT_USER,
     })
 }
 
@@ -65,6 +64,7 @@ export const sign_in = (user) => dispatch => {
     )
 }
 
+
 export const fetchUsers = () => dispatch => {
     return SessionApiUtil.fetchUsers().then(
         users => dispatch(receiveAllUsers(users))
@@ -72,3 +72,8 @@ export const fetchUsers = () => dispatch => {
 }
 
 
+export const fetchUser = (userId) => {
+    return UserApiUtil.fetchUser(userId).then(
+        (user) => dispatch(receiveCurrentUser(user))
+    )
+}

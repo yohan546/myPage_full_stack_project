@@ -1,8 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
-import { closeModal, openModal  } from '../../actions/modal_actions';
-import {sign_in, clearErrors} from '../../actions/session_actions'
+import {openModal  } from '../../actions/modal_actions';
+import {sign_in, fetchUsers} from '../../actions/session_actions'
 import SessionForm from './session_form'
 
 const mapStateToProps = ({errors}) => {
@@ -14,7 +13,7 @@ const mapStateToProps = ({errors}) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        sessionForm: (user) => dispatch(sign_in(user)),
+        processForm: (user) => dispatch(sign_in(user)),
         otherForm: (
             <button className='btn-create-account' onClick= {(e) => {
                 e.preventDefault();
@@ -23,7 +22,7 @@ const mapDispatchToProps = (dispatch) => {
             Create New Account
             </button>
         ),
-        // closeModal: () => dispatch(closeModal()),
+        fetchUsers: (users) => dispatch(fetchUsers(users))
     };
     
 };
