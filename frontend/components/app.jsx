@@ -15,7 +15,7 @@ const App = () => (
     <div>
         <header>
             <h1>MyPage</h1>
-            <Link to="/" />
+            
         </header>
             <Modal />    
             <Switch>

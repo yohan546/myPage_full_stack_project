@@ -14,7 +14,6 @@ const mapDispatchToProps = (dispatch) => {
     debugger 
     return {
         fetchUser: (userId) => dispatch(fetchUser(userId)),
-        
         sign_out: () => dispatch(sign_out())
     }
 }

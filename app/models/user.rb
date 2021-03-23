@@ -11,7 +11,7 @@ class User < ApplicationRecord
         user = User.find_by(email: email)
         return nil if user.nil? 
 
-        if (user.check_password(password)) 
+        if (user.check_password?(password)) 
             return user 
         else
             return nil
@@ -23,7 +23,7 @@ class User < ApplicationRecord
         self.password_digest = BCrypt::Password.create(password)
     end
 
-    def check_password(password) 
+    def check_password?(password) 
         BCrypt::Password.new(self.password_digest).is_password?(password)
     end
 
@@ -33,14 +33,20 @@ class User < ApplicationRecord
         self.session_token
     end
 
+    private
+
     def ensure_session_token
         generate_unique_session_token unless self.session_token
     end
 
+    def new_session_token 
+        SecureRandom.urlsafe_base64
+    end
+
     def generate_unique_session_token 
-        self.session_token = SecureRandom.urlsafe_base64
+        self.session_token = new_session_token
         while (User.find_by(session_token: self.session_token)) 
-            self.session_token = SecureRandom.urlsafe_base64
+            self.session_token = new_session_token
         end
         self.session_token
     end

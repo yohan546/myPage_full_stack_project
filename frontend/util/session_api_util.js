@@ -5,7 +5,6 @@ export const fetchUsers = () => {
     })
 }
 
-
 export const sign_in = (user) => {
     return $.ajax ({
         method: "POST",

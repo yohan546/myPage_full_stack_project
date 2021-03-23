@@ -41,11 +41,9 @@ export const receiveErrors = (errors) => {
 export const sign_up = (user) => dispatch => {
     return SessionApiUtil.sign_up(user).then(
         user => {
-            debugger 
             return dispatch(receiveCurrentUser(user))
         }, 
         errors => {
-            debugger 
             return dispatch(receiveErrors(errors.responseJSON))
         }
     ) 
@@ -53,7 +51,10 @@ export const sign_up = (user) => dispatch => {
 
 export const sign_out = () => dispatch => {
     return SessionApiUtil.sign_out().then(
-        user => dispatch(signoutCurrentUser())
+        user => {
+            debugger
+            return dispatch(signoutCurrentUser())
+        }
     )
 }
 
