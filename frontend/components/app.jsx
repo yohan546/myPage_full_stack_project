@@ -10,12 +10,12 @@ import NewsfeedContainer from './newsfeed/newsfeed_container';
 import ProfileContainer from './profile/profile_container';
 import Modal from './modal/modal'
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import DemoUser from './session_form/demo_user';
 
 const App = () => (
     <div>
         <header>
             <h1>MyPage</h1>
-            
         </header>
             <Modal />    
             <Switch>

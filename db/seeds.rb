@@ -8,7 +8,7 @@
 
 
 User.delete_all
-ActiveRecord::Base.connection.reset_pk_sequence!('User')
+ApplicationRecord.connection.reset_pk_sequence!('users')
 
 
 user1 = User.create!(

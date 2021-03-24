@@ -5,14 +5,14 @@ import { Route, Redirect, withRouter } from 'react-router-dom';
 
 const Auth = ({ component: Component, path, signedIn, exact }) => (
   <Route path={path} exact={exact} render={(props) => ( 
-      !signedIn ? ( <Component {...props} /> )  : ( <Redirect to="/newsfeed" /> )
+      !signedIn ?  <Component {...props} />   :  <Redirect to="/newsfeed" /> 
   )} 
   />
 );
 
 const Protected = ({ component: Component, path, signedIn, exact }) => (
   <Route path={path} exact={exact} render={(props) => (
-     signedIn ? ( <Component {...props} /> ) : ( <Redirect to="/" /> )
+     signedIn ?  <Component {...props} />  :  <Redirect to="/" /> 
   )} 
   />
 );

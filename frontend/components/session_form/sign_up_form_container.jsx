@@ -5,8 +5,7 @@ import { closeModal,} from '../../actions/modal_actions';
 import SessionForm from './session_form';
 
 const mapStateToProps = ( {errors} ) => {
-    return {
-        
+    return {        
         errors: errors.session,
         formType: 'Sign Up',      
         params: ['Must be a valid email address', 'Password must at least 6 characters', 'Password must be no more than 30 characters']

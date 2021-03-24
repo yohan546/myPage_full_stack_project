@@ -9,14 +9,19 @@ class SessionForm extends React.Component {
             password: '',
         };
         this.handleSubmit = this.handleSubmit.bind(this);
-        
+        this.handleDemoUser = this.handleDemoUser.bind(this);
     };
+
+    componentDidMount() {
+        {this.props.formType === 'Sign In' ? 
+        this.props.fetchUsers() : null
+        }
+    }
     
-
-
     handleChange(field) {
         return (e) => this.setState({[field]: e.target.value})
     }
+
 
     handleSubmit(e) {
         e.preventDefault();
@@ -24,10 +29,10 @@ class SessionForm extends React.Component {
         this.props.processForm(user).then(this.props.closeModal);
     }
 
-    componentDidMount() {
-        {this.props.formType === 'Sign In' ? 
-        this.props.fetchUsers() : null
-        }
+    handleDemoUser(e){
+        e.preventDefault();
+        const demoUser = Object.assign({}, {email: 'jonsnow@gameofthrones.com', password: 'password'} )
+        this.props.processForm(demoUser)
     }
 
     renderErrors() {
@@ -44,45 +49,50 @@ class SessionForm extends React.Component {
         )
     }
 
-    
-    
-
     render() {
-
-
+       
         return (
+             
             <div className = 'login-form-container'>
+
+                <button onClick={this.handleDemoUser}>Demo User</button>
+
                 <form onSubmit={this.handleSubmit} className='signin-form-box'>
-                   
+
+
                     {
                         this.props.formType === 'Sign Up' ?
                         <h2>Sign up!</h2> : null
                     }
+
                     {
                         this.props.formType === 'Sign Up' ?                       
                         <button onClick={this.props.closeModal} className='btn-close'>X</button> : null
-                    }                                    
+                    }
+                                        
                     {this.renderErrors()} 
-                                       
+                    
                     <div className='login-form'>
                         <label>
                         
                         <input type="text"
-                        value={this.state.email}
-                        onChange={this.handleChange('email')}
-                        className='email-input'
-                        placeholder='Email'
+                            value={this.state.email}
+                            onChange={this.handleChange('email')}
+                            className='email-input'
+                            placeholder='Email'
                         />
                         </label>
+
                         <br/>
                         <label>
-                            <input type="text"
+                            <input type="password"
                             value={this.state.password}
                             onChange={this.handleChange('password')}
                             className='password-input'
                             placeholder='Password'
                             />
                         </label>
+
                         <br/>
                         { 
                             this.props.formType === 'Sign Up' ? 
@@ -94,23 +104,25 @@ class SessionForm extends React.Component {
                             placeholder='Name'/> </label>: null 
                             
                         }
+
                         <br/>
                         {
                         this.props.formType === 'Sign Up' ? 
                         this.props.params.map((param, i) => (
                             <li key={param}>
-                                {param}</li>
-                        )) : null
+                                {param}
+                            </li>)) : null
                         }
+
                         <br/>
                         <label>
                             <input className='session-submit' type="submit" value={this.props.formType}/>
                         </label>
+
                         <br/>
                         {this.props.otherForm}
                         
                     </div>
-                         
                 </form>
             </div>
         )
