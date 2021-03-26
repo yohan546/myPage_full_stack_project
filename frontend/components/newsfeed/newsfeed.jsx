@@ -37,8 +37,12 @@ class Newsfeed extends React.Component {
                 <ul className='ul-posts'>
                     {
                     this.props.posts.map(post => (
+                    
                         <li key={post.id}>
-                       {post.body}
+                        {this.props.currentUser.name}
+                        <br/>
+                        <br/>
+                        {post.body}
                         </li>
                     ))
                     }
