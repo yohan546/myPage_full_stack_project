@@ -7,12 +7,15 @@ class Profile extends React.Component {
 
         
         this.renderFriendList = this.renderFriendList.bind(this)
+        this.renderPostsList = this.renderPostsList.bind(this)
     }
 
     
     componentWillUnmount () {
         this.props.fetchFriends(this.props.currentUser.id);
+        this.props.fetchPosts();
     }
+
 
   
 
@@ -24,6 +27,22 @@ class Profile extends React.Component {
                     this.props.friends.map(friend => (
                         <li key={friend.id}>
                         <Link className='ul-friends' to={`/users/${friend.id}`}> {friend.name} </Link>
+                        </li>
+                    ))
+                    }
+                </ul>
+        </div>
+        )
+    }
+
+    renderPostsList () {
+        return (
+        <div> <h4> Posts </h4>
+                <ul className='ul-posts'>
+                    {
+                    this.props.posts.map(post => (
+                        <li key={post.id}>
+                       {post.body}
                         </li>
                     ))
                     }
@@ -46,7 +65,7 @@ class Profile extends React.Component {
                 </div>
 
                 <div className='friends-list'>{this.renderFriendList()}</div>
-                
+                <div className='posts-list' >{this.renderPostsList()} </div>
              
             </div>
         )

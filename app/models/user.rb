@@ -18,6 +18,11 @@ class User < ApplicationRecord
 
     after_initialize :ensure_session_token
 
+    has_many :posts,
+        foreign_key: :author_id,
+        class_name: :Post
+
+
     has_many :friendships
 
     has_many :friends,

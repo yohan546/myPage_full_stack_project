@@ -11,6 +11,8 @@ User.delete_all
 ApplicationRecord.connection.reset_pk_sequence!('users')
 Friendship.delete_all
 ApplicationRecord.connection.reset_pk_sequence!('friendships')
+Post.delete_all
+ApplicationRecord.connection.reset_pk_sequence!('posts')
 
 
 user1 = User.create!(
@@ -39,6 +41,30 @@ user4 = User.create!(
     email: 'aryastark@gameofthrones.com',
     password: 'password',
     friendlist: [3]
+)
+
+p1 = Post.create!(
+    author_id: 1,
+    wall_id: 1,
+    body: "I Swore A Vow To The Night's Watch. If I Don't Take My Own Words Seriously, What Sort Of Lord Of Winterfell Would I Be"
+)
+
+p2 = Post.create!(
+    author_id: 1,
+    wall_id: 1,
+    body: "You'll Be Ruling Over A Graveyard If We Don't Defeat The Night King."
+)
+
+p3 = Post.create!(
+    author_id: 1,
+    wall_id: 1,
+    body: 'My Watch Has Ended.'
+)
+
+p4 = Post.create!(
+    author_id: 1,
+    wall_id: 1,
+    body: "I Do Know Some Things..."
 )
 
 user1.friendships.create(friend: user2)

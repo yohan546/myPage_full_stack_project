@@ -6,11 +6,14 @@ class Newsfeed extends React.Component {
         super(props);
 
         this.renderFriendList = this.renderFriendList.bind(this)
+        this.renderPostsList = this.renderPostsList.bind(this)
     }
 
     componentDidMount () {
         this.props.fetchFriends(this.props.currentUser.id);
+        this.props.fetchPosts();
     }
+
 
     renderFriendList () {
         return (
@@ -28,6 +31,24 @@ class Newsfeed extends React.Component {
         )
     }
 
+    renderPostsList () {
+        return (
+        <div> <h4> Posts </h4>
+                <ul className='ul-posts'>
+                    {
+                    this.props.posts.map(post => (
+                        <li key={post.id}>
+                       {post.body}
+                        </li>
+                    ))
+                    }
+                </ul>
+        </div>
+        )
+    }
+
+
+
     render () {
         const {currentUser} = this.props
         return (
@@ -43,7 +64,8 @@ class Newsfeed extends React.Component {
                 </div>
 
                 <div className='friends-list' >{this.renderFriendList()} </div>
-                
+                <div className='posts-list' >{this.renderPostsList()} </div>
+
                
                 
             </div>

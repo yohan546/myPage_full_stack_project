@@ -1,5 +1,6 @@
 .newsfeed-container, .profile-container {
     height: 100%;
+
 }
 .nav-bar {
     justify-content: center;
@@ -70,11 +71,53 @@ h4 {
     align-items: center;
 }
 
+.posts-list {
+    justify-content: center;
+    display: flex;
+    align-items: flex-start;
+    background-color: rgb(27, 26, 26);
+    border-radius: 5px;
+    margin-top: 30px;
+    width: 300px;
+    height: 500px;
+    margin-left: 40px;
+    border-bottom: lightgray 2px ;
+    color:white;
+    float: center; 
+}
+
+
 .ul-friends {
     color: white;
     padding-bottom: 20px;
     box-sizing: border-box;
     justify-content: space-between;
+}
+
+.ul-friends li {
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    background-color: rgb(75, 69, 69);
+}
+
+.ul-posts {
+    color: white;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+
+.ul-posts li {
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    background-color: rgb(75, 69, 69);
 }
 
 
