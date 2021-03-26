@@ -23,7 +23,7 @@ const mapDispatchToProps = (dispatch) => {
             Create New Account
             </button>
         ),
-        fetchUsers: (users) => dispatch(fetchUsers(users))
+        fetchUsers: () => dispatch(fetchUsers())
     };
     
 };
