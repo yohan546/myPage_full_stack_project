@@ -54,8 +54,8 @@ class SessionForm extends React.Component {
         return (
              
             <div className = 'login-form-container'>
-
-                <button onClick={this.handleDemoUser}>Demo User</button>
+                <button className='btn-demo' onClick={this.handleDemoUser}>Demo User</button>
+                
 
                 <form onSubmit={this.handleSubmit} className='signin-form-box'>
 

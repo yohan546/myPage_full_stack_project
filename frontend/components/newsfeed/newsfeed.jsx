@@ -14,12 +14,12 @@ class Newsfeed extends React.Component {
 
     renderFriendList () {
         return (
-        <div> <h3>Friend List </h3>
-                <ul className='friends-list'>
+        <div> <h4>Friend List </h4>
+                <ul className='ul-friends'>
                     {
                     this.props.friends.map(friend => (
                         <li key={friend.id}>
-                        <Link to={`/users/${friend.id}`}>{friend.name}</Link>
+                        <Link className='ul-friends' to={`/users/${friend.id}`}>{friend.name}</Link>
                         </li>
                     ))
                     }
@@ -29,25 +29,27 @@ class Newsfeed extends React.Component {
     }
 
     render () {
-
-        const {friendlist, currentUser, users} = this.props
-
+        const {currentUser} = this.props
         return (
 
-            <div>
+            <div className='newsfeed-container'>
+                <div className='nav-bar'>
                 <h3>Newsfeed</h3>
-
+                <Link className='link-profile'to={`/users/${currentUser.id}`}>Profile</Link>
                 <button className='btn-signout'onClick={() => this.props.sign_out()}>Sign Out</button>
 
                 
-                <Link to={`/users/${currentUser.id}`}>Profile Page</Link>
-      
-                {this.renderFriendList()}
                 
+                </div>
 
+                <div className='friends-list' >{this.renderFriendList()} </div>
+                
+               
+                
             </div>
         )
     }
 }
+
 
 export default Newsfeed;

@@ -18,12 +18,12 @@ class Profile extends React.Component {
 
     renderFriendList () {
         return (
-        <div> <h3>Friend List</h3>
-                <ul className='friends-list'>
+        <div> <h4>Friend List</h4>
+                <ul >
                     {
                     this.props.friends.map(friend => (
                         <li key={friend.id}>
-                        <Link to={`/users/${friend.id}`}> {friend.name} </Link>
+                        <Link className='ul-friends' to={`/users/${friend.id}`}> {friend.name} </Link>
                         </li>
                     ))
                     }
@@ -35,15 +35,19 @@ class Profile extends React.Component {
     render () {
         return (
 
-            <div>
+            <div classname='profile-container'>
+                <div className='nav-bar'>
                 <h3>Profile Page</h3>
-                
+                <Link className = 'link-newsfeed' to={'/newsfeed'}>Newsfeed</Link>
                 <button className='btn-signout'onClick={() => this.props.sign_out()}>Sign Out</button>
 
                 
-                <Link to={'/newsfeed'}>Newsfeed</Link>
+                
+                </div>
 
-                {this.renderFriendList()}
+                <div className='friends-list'>{this.renderFriendList()}</div>
+                
+             
             </div>
         )
     }

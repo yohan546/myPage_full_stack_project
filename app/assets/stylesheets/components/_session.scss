@@ -1,5 +1,5 @@
 html { 
-    background-color:azure;
+    background-color:rgb(14, 17, 17);
     font-family: Arial,  serif;
     margin-top: 100px;
 }
@@ -7,16 +7,13 @@ html {
 
 div.login-form-container {
     float: right;
-    background-color: white;
-    box-shadow: gray 0 2px 5px, gray 0 5px 10px;
+    background-color: rgb(27, 26, 26);
     color: black;
     border-radius: 10px;
     width: 350px;
     height: 400px;
     padding: 20px 20px;
-
     margin-right: 50px;
-    
     text-align: center;
     position: relative;
     box-sizing:border-box;
@@ -62,8 +59,8 @@ label {
 }
 
 .password-input, .email-input, .name-input {
-    border-color: lightblue;
-    border: 1px solid lightblue;
+    background-color: rgb(129, 122, 122);
+    color: white;
     display: inline-block;
     text-align: left;
     border-radius: 5px;
@@ -72,39 +69,48 @@ label {
     line-height: 40px;
 }
 
+::placeholder {
+    color: white;
+}
+
 .session-submit {
     display: inline-block;
-    border: none; 
     border-radius: 5px;
     margin-left: 10px;
     width: 300px;
     line-height: 40px;
-    background-color: blue;
+    background-color: rgb(75, 69, 69);
     color: white;
     font-size: 18px;
     font-weight: bold;
+}
+
+.btn-demo {
+    width: 200px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    border-radius: 5px;
+    background-color: rgb(75, 69, 69);
 }
 
 h1 {
     float: left;
     font-weight: bold;
     font-size: 40px;
-    color: blue;
+    color: white;
     font-family: Helvetica, Arial, sans-serif;
 }
-h3 {
-    margin-top: 40px;
-    margin-left: 70px;
-}
+
 
 .btn-create-account {
     font-weight: bold;
     margin-top: 20px;
     width: 220px; 
     line-height: 60px;
-    border: none;
     border-radius: 6px;
-    background-color: green;
+    background-color: rgb(75, 69, 69);
     color: white;
     font-size: 16px;
 }

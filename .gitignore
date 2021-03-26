@@ -2,3 +2,8 @@
 /app/assets/javascripts/bundle.js
 /public/assets
 /app/assets/javascripts/bundle.js.map
+
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
